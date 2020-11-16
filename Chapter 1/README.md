@@ -8,7 +8,7 @@
 * see `chapter1.py`
 
 
-**3. Write a program that tries to test that your composition function respects identity. **
+**3. Write a program that tries to test that your composition function respects identity.**
 * see `chapter1.py`
 
 
@@ -24,5 +24,5 @@
 * even if there was, a friend of a friend is not necessarily a friend of mine
 
 
-*6. When is a directed graph a category?
+**6. When is a directed graph a category?**
 * when its edge relation is reflexive and transitive
