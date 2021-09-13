@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+
+\title{Important Definitions\\
+\large from ``Category Theory for Programmers" by Bartosz Milewski}
+
+\author{Jessika Rockel}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Categories}
+A category consists of objects and arrows (morphisms) between them. \\
+
+
+Every object must have an identity morphism and for any two composable morphisms the composition must also be a morphism. 
+
+\subsection{Composition}
+For two functions $f :: A \rightarrow B$ and $g :: B \rightarrow C$ their composition is defined as: $g \circ f = \lambda x. g ( f (x))$.\\
+
+Composition is associative: $h \circ (g \circ f) = (h \circ g) \circ f$ \\
+
+The identity morphism is a unit of composition: $f \circ \mathbf{id}_A = f$ and $\mathbf{id}_B \circ f = f$.
+
+\subsection{Homset}
+A set of morphisms from object $a$ to object $b$ in a category \textbf{C} is called a \textit{homset} and is written as $\textbf{C}(a,b)$ or sometimes $\textbf{Hom}_{\textbf{C}}(a,b)$
+
+\subsection{Thin Category}
+A category is called \textit{thin} when there is at most one morphism going from any object $a$ to any object $b$.
+
+\section{Types}
+A Type is a set of values. That set may be finite or infinite. \\
+Haskell Types also implicitly include the value \textit{bottom} (written as $\bot$), which represents nontermination.
+
+\subsection{Examples of Types}
+\texttt{Void} is the type corresponding to the empty set. It is a type that is not inhabited by any values. A function taking \texttt{Void} as an argument can be defined, but it can never be called. The return type of this function (called \texttt{absurd} in Haskell) can be anything. \\
+
+\texttt{()} (pronounced ``unit'') is the type corresponding to a singleton set. It has only one possible value. \\
+
+\texttt{Bool} is the type corresponding to a set with exactly two values, \texttt{True} and \texttt{False}. Functions to \texttt{Bool} are called \textit{predicates}.
+
+\section{Pure Functions}
+A pure function is a function that always produces the same output given the same input and does not have any side effects (such as shared memory modification, I/O,...). 
+
+\section{Free Construction}
+The process of completing a given structure by extending it to satisfy its basic laws (such as the laws of a category in the case of a \textit{free category}).
+
+\section{Orders}
+Orders are special types of relations: \\
+
+A \textit{preorder} is reflexive and transitive.\\
+A \textit{partial order} is a preorder where $a \leq b$ and $b \leq a$ implies $a = b$.\\
+The additional comdition that any two objects are in a relation with each other makes it a \textit{linear order} or \textit{total order}.
+
+\section{Monoid}
+\subsection{Set Monoid}
+A monoid is a set with a binary operation. That operation must be associative and there must be a special element in the set that acts as a unit with respect to the operation.\\
+An example of this are the natural numbers with zero, which form a monoid under addition. Addition is associative ($a + (b + c) = (a + b) + c$) and the neutral element is zero ($a + 0 = a$ and $0 + a = a$).
+
+\subsection{Category Monoid}
+A categorical monoid is a one-object category with some number of morphisms. \\
+
+We can get a set monoid from a categorical monoid where the set is the homset $\mathbf{M}(m,m)$ and the binary operation is composition.
+\end{document}

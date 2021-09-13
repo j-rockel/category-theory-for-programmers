@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+
+\title{Example Categories\\
+\large from ``Category Theory for Programmers" by  Bartosz Milewski}
+
+\author{Jessika Rockel}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Chapter 2: Types and Functions}
+\subsection{Set}
+The category of sets, where objects are sets and morphisms are functions. 
+Here we can derive a lot of information about the category from the information we have about sets and the possible functions between them. 
+This is in contrast to most other categories, where we are not interested in looking ``inside'' objects or morphisms.
+
+\subsection{Hask}
+The category of Haskell types. \textbf{Set} with the addition of \textit{bottom} ($\bot$) to represent nontermination. \\(There's more to this but it is not included in the chapter).
+
+\section{Chapter 3: Categories Great and Small}
+\subsection{No Objects}
+A category that has zero objects and therefore also zero morphisms. 
+
+\subsection{Free Category from Directed Graph}
+A \textit{free category} can be generated from any directed graph by adding identity and composition arrows everywhere possible (which corresponds to performing the reflexive and transitive closure for the graph's edge relation).
+
+\subsection{Orders}
+The category where a morphism is a relation between objects works for any relation that is at least a preorder: A preorder is reflexive (includes identity) and transitive (includes composition) and thus fulfills exactly the requirements of a category. One such example is the less than or equal relation $a \leq b$.
+
+\subsection{Monoid}
+A categorical monoid, which is a one-element category. 
+\end{document}
