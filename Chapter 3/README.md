@@ -37,19 +37,18 @@ Associativity: `A || (B || C) == (A || B) || C` holds: both sides evaluate to `F
 Neutral element: `False` is the neutral element wrt. `||` since `A || False == False || A == A`. 
 
 **4. Represent the `Bool` monoid with the AND operator as a category: List the morphisms and their rules of composition.**
-Objects: `False`, `True`
-Morphisms: `id_False :: False -> False`, `id_True :: True -> True`, 
-`(&& False)_False :: False -> False`, `(&& False)_True :: True -> False`,
-`(&& True)_False :: False -> False`, `(&& True)_True :: True -> True`
+Objects: `Bool`
+Morphisms: `id_Bool` == `(&&True)`, `(&& False)`
 Rules of composition: 
-In addition to the general rules of a a category we have:
-`(&& False) . f == f . (&& False) == (&& False)`
-and 
-`(&& True) . f == f . (&& True) == f`  
+`(&& True) . f == f . (&& True) == f` (this is just identity)
+and
+`(&& False) . f == f . (&& False) == (&& False)` (this is an additional rule)
 
 **5. Represent addition modulo 3 as a monoid category.**
-Objects: `1`, `2`, `3`
-Morphisms: `id_1`, `id_2`, `id_3`,
-For all natural numbers `n` where `n mod 3 = 1` we have `(+n mod 3)_1 :: 1 -> 2`, `(+n mod 3)_2 :: 2 -> 3` and `(+n mod 3)_3 :: 3 -> 1`
-For all natural numbers `n` where `n mod 3 = 2` we have `(+n mod 3)_1 :: 1 -> 3`, `(+n mod 3)_2 :: 2 -> 1` and `(+n mod 3)_3 :: 3 -> 2`
-For all natural numbers `n` where `n mod 3 = 0` we have `(+n mod 3)_1 :: 1 -> 1`, `(+n mod 3)_2 :: 2 -> 2` and `(+n mod 3)_3 :: 3 -> 3`
+Objects: `{0,1,2}`
+Morphisms: 
+Representing all natural numbers `n` where `n mod 3 = 1` we have `(+n mod 3 = 1)`
+Representing all natural numbers `n` where `n mod 3 = 2` we have `(+n mod 3 = 2)`
+Representing all natural numbers `n` where `n mod 3 = 0` we have `(+n mod 3 = 0)` == `id_{0,1,2}`
+Composition: 
+`forall x,y in {0,1,2}. ((x + y) mod 3 = z) -> (+n mod 3 = x) . (+n mod 3 = y) == (+n mod 3 = z)`
