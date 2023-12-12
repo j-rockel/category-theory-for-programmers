@@ -5,11 +5,13 @@ Caveat for this chapter: I don't know C++ so interpret this as C++-style pseudoc
 **1. Construct the Kleisli category for partial functions (define composition and identity).**
 Composition: 
 ``` C++
-auto const compose = [](auto m1, auto m2) {
-  return [m1, m2] (auto x) {
+template<class A, class B, class C>
+function<optional<C>(A)> compose(function<optional<B>(A)> m1, function<optional<C>(B)> m2)
+{
+  return [m1, m2] (A x) {
     auto opt1 = m1(x);
     if opt1.isValid() return m2(opt1.value());
-      else return opt1;
+      else return optional<C>{};
   }
 }
 ```
