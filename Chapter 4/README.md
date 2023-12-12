@@ -3,6 +3,7 @@
 Caveat for this chapter: I don't know C++ so interpret this as C++-style pseudocode.
 
 **1. Construct the Kleisli category for partial functions (define composition and identity).**
+
 Composition: 
 ``` C++
 template<class A, class B, class C>
