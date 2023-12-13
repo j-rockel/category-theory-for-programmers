@@ -36,10 +36,18 @@ With a parallel argument to the one used above, if `A` and `B` are in relation t
 **4. Implement the equivalent of Haskell `Either` as a generic type in your favorite language (other than Haskell).**
 Tried this in Clojure, and this map is the best candidate I managed to come up with without reaching down to the Java level.
 ``` Clojure
-(defn i [n] {:isLeft true :value n} )
-(defn j [m] {:isLeft false :value m} )
+(defn i [n, typeLeft, typeRight] 
+  (if 
+    (== (type n) typeLeft) 
+    {:isLeft true :value n} 
+    (throw (new Exception "Type mismatch!")) ))
+
+(defn j [m, typeLeft, typeRight] 
+  (if 
+    (== (type n) typeRight) 
+    {:isLeft false :value m} 
+    (throw (new Exception "Type mismatch!")) ))
 ```
-To add type information to this i imagine we would have to define a generic wrapper class in Java and invoke its constructor with the respective type when writing the `:value` field of `i` and `j`. 
 
 If we instead implemented the whole thing in Java we might build sth like this:
 ``` Java
